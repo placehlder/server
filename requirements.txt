@@ -1,5 +1,6 @@
 flask_bcrypt
 pyotp
-flask
+flask~=2.1.2
 flask_socketio
 flask_sqlalchemy
+SQLAlchemy~=1.4.39
