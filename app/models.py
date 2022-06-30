@@ -9,14 +9,14 @@ class User(db.Model):
     username = db.Column("username", db.String(60), primary_key=True, unique=True)
     password = db.Column("password", db.String(60))
     lastlogin = db.Column("lastlogin", db.Integer)
-    messages = relationship("Message", backref="user")
+    messages = relationship("Message", backref="message")
     rooms = db.Column(db.Integer, db.ForeignKey("room.id"))
 
 
 class Message(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     name = db.Column("name", db.String)
-    user = db.Column(db.Integer, db.ForeignKey("user.id"))
+    sender = db.Column("sender", db.Integer, db.ForeignKey("user.username"))
     room = db.Column(db.Integer, db.ForeignKey("room.id"))
 
 
