@@ -27,7 +27,7 @@ def login():
         if decode_auth_token('token')[0]:
             return {"type": "message", "message": "Already logged in"}
 
-    if user := User.query.filter_by(username=request.json['username']):
+    if user := User.query.filter_by(username=request.json['username']).first():
         if bcrypt.check_password_hash(user.password, request.json['password']):
             return {"type": "success", "message": "User authenticated", "token": encode_auth_token(user.username)}
         else:
