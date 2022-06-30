@@ -7,3 +7,4 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 ws = SocketIO(app)
+
