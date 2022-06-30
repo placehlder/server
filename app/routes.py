@@ -21,7 +21,7 @@ auth = Blueprint("auth", "auth", url_prefix="/auth")
 
 @auth.route("/login", methods=["POST"])
 def login():
-    if ['username', 'password'] not in request.json.keys():
+    if 'username' not in request.json.keys() and 'password' not in request.json.keys():
         return {"type": "error", "message": "Username or password fields not filled"}, 400
     if 'token' in request.json.keys():
         if decode_auth_token('token')[0]:
