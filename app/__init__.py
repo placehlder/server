@@ -11,3 +11,4 @@ ws = SocketIO(app)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite://"
+CORS(app, resources={r'/*': {'origins': '*'}})

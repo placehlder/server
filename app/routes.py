@@ -1,4 +1,4 @@
-from app import app, db, bcrypt
+from app import app, bcrypt
 from app.models import User, encode_auth_token, decode_auth_token
 
 from flask.blueprints import Blueprint
